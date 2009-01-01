@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml">
+  <mx:Script>
+    <![CDATA[
+      private function resetHandler():void {
+        test.text="test";
+      }
+    ]]>
+  </mx:Script>
+
+
+  <mx:Panel title="Lotto" width="95%" height="95%" layout="horizontal" 
+            paddingTop="5" paddingLeft="10" paddingRight="10" paddingBottom="5">
+
+    <mx:VBox height="100%">
+        <mx:Label text="Change Me" fontSize="14" id="test"/>
+    </mx:VBox>
+        
+    <mx:VBox height="100%" width="100%">
+        <mx:Text width="100%" color="blue" 
+            text="Testing"/>
+        
+        <mx:Spacer height="100%"/>
+    
+        <mx:Button label="Test" click="resetHandler();"/>
+    </mx:VBox>
+
+  </mx:Panel>
+</mx:Application>
