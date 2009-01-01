@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" 
+  creationComplete="drawNumber()">
+  <mx:Script>
+    <![CDATA[
+
+       private function drawNumber():void {
+         this.graphics.clear();
+         this.graphics.beginFill(0xEE0000);
+         this.graphics.drawCircle(10, 10, 10);
+         this.graphics.endFill();
+       }
+    ]]>
+  </mx:Script>
+</mx:Canvas>

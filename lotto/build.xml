@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?> 
-<project name="My App Builder" basedir="."> 
+<project name="My App Builder" basedir="." default="main"> 
     <taskdef resource="flexTasks.tasks" 
         classpath="/Users/aa/flex_sdk_3/ant/lib/flexTasks.jar"/> 
     <property name="FLEX_HOME" value="/Users/aa/flex_sdk_3"/> 

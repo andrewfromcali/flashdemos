@@ -1,20 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" xmlns:comp="components.*">
   <mx:Script>
-    <![CDATA[
-       private function drawStar():void 
-      {
-        this.graphics.clear();
-        this.graphics.beginFill(0xFFD700,1);
-        this.graphics.lineStyle(2, 0xFFD700, 1, false, "normal", "square", "miter", 8);        
-        this.graphics.moveTo(9, 2);
-        this.graphics.lineTo(5,14);
-        this.graphics.lineTo(16,7);
-        this.graphics.lineTo(3,7);
-        this.graphics.lineTo(14,14);
-        this.graphics.lineTo(9,2);
-      }
-
+    <![CDATA[     
       private function resetHandler():void {
         n1.text="" + Math.ceil(Math.random() * 56);
         n2.text="" + Math.ceil(Math.random() * 56);
@@ -26,14 +13,13 @@
     ]]>
   </mx:Script>
   
-  <mx:Canvas x="22" y="54" height="440" width="100%" id="formcanvas">
-    <comp:GoldStar id="star1" width="15" height="15" x="0" y="371"/>
-  </mx:Canvas>
-  
   <mx:Panel title="Lotto" width="95%" height="95%" layout="horizontal" 
             paddingTop="5" paddingLeft="10" paddingRight="10" paddingBottom="5">
 
     <mx:HBox height="100%">
+        <comp:LottoNumber id="star1" width="15" height="15"/>
+        <comp:LottoNumber id="star2" width="15" height="15"/>
+        <comp:LottoNumber id="star3" width="15" height="15"/>
         <mx:Label text="X" fontSize="14" id="n1"/>
         <mx:Label text="X" fontSize="14" id="n2"/>
         <mx:Label text="X" fontSize="14" id="n3"/>
