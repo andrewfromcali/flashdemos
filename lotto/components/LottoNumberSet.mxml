@@ -7,7 +7,7 @@
        private function drawNumbers():void {
          for (var i:Number = 0; i < 6; i++) {
            var lottoNumber:LottoNumber = new LottoNumber();
-           lottoNumber.number = "34";
+           lottoNumber.number = ""+Math.ceil(Math.random() * 56);
            if (i == 5)
              lottoNumber.mega = true;
            this.addChild(lottoNumber);

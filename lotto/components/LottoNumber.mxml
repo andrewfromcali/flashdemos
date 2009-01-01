@@ -18,16 +18,23 @@
       [Bindable]
       public var number:String;
       public var mega:Boolean;
+
+      [Bindable]
+      public var fontColor:String
+
        
       private function drawNumber():void {
         this.theImage = ball;
-        if (this.mega)
+        theLabel.setStyle("color", "0x4c449e");
+        if (this.mega) {
           this.theImage = megaBall;
+          theLabel.setStyle("color", "0xffffff");
+        }
       }
     ]]>
   </mx:Script>
   
   <mx:Image id="myImageRaw" source="{theImage}"/>
-  <mx:Label text="{number}" fontSize="12" id="test" y="3" x="2"/>
+  <mx:Label text="{number}" fontSize="12" id="theLabel" y="3" x="2" fontWeight="bold" fontFamily="Verdana" />
         
 </mx:Canvas>
