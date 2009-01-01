@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<project name="My App Builder" basedir="."> 
+    <taskdef resource="flexTasks.tasks" 
+        classpath="/Users/aa/flex_sdk_3/ant/lib/flexTasks.jar"/> 
+    <property name="FLEX_HOME" value="/Users/aa/flex_sdk_3"/> 
+    <target name="main"> 
+        <mxmlc file="lotto.mxml" keep-generated-actionscript="true"> 
+            <load-config filename="${FLEX_HOME}/frameworks/flex-config.xml"/> 
+            <source-path path-element="${FLEX_HOME}/frameworks"/> 
+        </mxmlc> 
+    </target> 
+</project> 
