@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:HBox xmlns:mx="http://www.adobe.com/2006/mxml" xmlns:comp="components.*"
+  height="100%" horizontalGap="5" paddingTop="10" paddingLeft="5"
+  creationComplete="drawNumbers()">
+  <mx:Script>
+    <![CDATA[       
+       private function drawNumbers():void {
+         for (var i:Number = 0; i < 6; i++) {
+           var lottoNumber:LottoNumber = new LottoNumber();
+           lottoNumber.number = "34";
+           if (i == 5)
+             lottoNumber.mega = true;
+           this.addChild(lottoNumber);
+         }
+       }
+    ]]>
+  </mx:Script>
+
+</mx:HBox>

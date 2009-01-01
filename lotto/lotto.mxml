@@ -3,12 +3,7 @@
   <mx:Script>
     <![CDATA[     
       private function resetHandler():void {
-        n1.text="" + Math.ceil(Math.random() * 56);
-        n2.text="" + Math.ceil(Math.random() * 56);
-        n3.text="" + Math.ceil(Math.random() * 56);
-        n4.text="" + Math.ceil(Math.random() * 56);
-        n5.text="" + Math.ceil(Math.random() * 56);
-        n6.text="" + Math.ceil(Math.random() * 56);
+        //n1.text="" + Math.ceil(Math.random() * 56);
       }
     ]]>
   </mx:Script>
@@ -16,17 +11,7 @@
   <mx:Panel title="Lotto" width="95%" height="95%" layout="horizontal" 
             paddingTop="5" paddingLeft="10" paddingRight="10" paddingBottom="5">
 
-    <mx:HBox height="100%">
-        <comp:LottoNumber id="star1" width="15" height="15" number="23"/>
-        <comp:LottoNumber id="star2" width="15" height="15"/>
-        <comp:LottoNumber id="star3" width="15" height="15"/>
-        <mx:Label text="X" fontSize="14" id="n1"/>
-        <mx:Label text="X" fontSize="14" id="n2"/>
-        <mx:Label text="X" fontSize="14" id="n3"/>
-        <mx:Label text="X" fontSize="14" id="n4"/>
-        <mx:Label text="X" fontSize="14" id="n5"/>
-        <mx:Label text="X" fontSize="14" id="n6"/>
-    </mx:HBox>
+    <comp:LottoNumberSet/>
         
     <mx:VBox height="100%" width="100%">
         <mx:Text width="100%" color="blue" 
