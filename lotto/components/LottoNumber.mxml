@@ -3,12 +3,34 @@
   creationComplete="drawNumber()">
   <mx:Script>
     <![CDATA[
+       import flash.geom.Matrix;
+       
+       public var number:String;
 
        private function drawNumber():void {
          this.graphics.clear();
          this.graphics.beginFill(0xEE0000);
          this.graphics.drawCircle(10, 10, 10);
          this.graphics.endFill();
+         
+         var labelType : TextField = new TextField();
+         labelType.text = "Text";
+         labelType.autoSize = TextFieldAutoSize.LEFT;
+         labelType.wordWrap = true;
+         
+         var typeTextBitmap : BitmapData = new BitmapData(labelType.width, labelType.height,true,0x00000000);
+         typeTextBitmap.draw(labelType);         
+         
+         var typeTextTranslationX:Number = -0.5*labelType.width;
+         var typeTextTranslationY:Number = -0.5*labelType.height;        
+         
+         var matrix:Matrix = new Matrix();
+         matrix.translate(typeTextTranslationX, typeTextTranslationY);
+         
+         this.graphics.beginBitmapFill(typeTextBitmap,matrix,false,true);
+         this.graphics.drawRect(typeTextTranslationX, typeTextTranslationY, labelType.width, labelType.height);
+         this.graphics.endFill();
+         
        }
     ]]>
   </mx:Script>

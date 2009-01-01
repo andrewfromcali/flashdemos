@@ -17,7 +17,7 @@
             paddingTop="5" paddingLeft="10" paddingRight="10" paddingBottom="5">
 
     <mx:HBox height="100%">
-        <comp:LottoNumber id="star1" width="15" height="15"/>
+        <comp:LottoNumber id="star1" width="15" height="15" number="23"/>
         <comp:LottoNumber id="star2" width="15" height="15"/>
         <comp:LottoNumber id="star3" width="15" height="15"/>
         <mx:Label text="X" fontSize="14" id="n1"/>
