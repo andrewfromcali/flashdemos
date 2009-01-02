@@ -10,6 +10,21 @@
        import flash.utils.Timer;
        import flash.events.TimerEvent;
     
+       [Bindable]
+       public static var statNumGuesses:Number = 0;
+       [Bindable]
+       public static var statWith1:Number = 0;
+       [Bindable]
+       public static var statWith2:Number = 0;
+       [Bindable]
+       public static var statWith3:Number = 0;
+       [Bindable]
+       public static var statWith4:Number = 0;
+       [Bindable]
+       public static var statWith5:Number = 0;
+       [Bindable]
+       public static var statWith6:Number = 0;
+
        private var myTimer:Timer = new Timer(100);
        
        public function reset():void {
@@ -21,6 +36,13 @@
              label.setStyle("color", "black");
            } 
          } 
+         statNumGuesses = 0;
+         statWith1 = 0;
+         statWith2 = 0;
+         statWith3 = 0;
+         statWith4 = 0;
+         statWith5 = 0;
+         statWith6 = 0;
        }
          
        private function addNumbers():void {
@@ -44,6 +66,7 @@
        }
          
        private function timerHandler(e:TimerEvent):void {
+         statNumGuesses++;
          for (var i:Number = 19; i > 0; i--) {
            
            var hbox_dest:HBox   = this.getChildAt(i) as HBox;

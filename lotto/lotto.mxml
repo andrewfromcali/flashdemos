@@ -1,27 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" xmlns:comp="components.*">
   <mx:Script>
-    <![CDATA[     
-      private function resetHandler():void {
-        //n1.text="" + Math.ceil(Math.random() * 56);
+    <![CDATA[
+    
+    
+      private function reset():void {
+        luckyNumbers.reset(); 
+        guessList.reset();
       }
-      
     ]]>
   </mx:Script>
     
-  <mx:Panel title="Lotto" width="95%" height="95%" layout="horizontal" 
+  <mx:Panel title="Lotto" width="500" height="95%" layout="horizontal" 
             paddingTop="5" paddingLeft="10" paddingRight="10" paddingBottom="5">
-   <mx:VBox xmlns:mx="http://www.adobe.com/2006/mxml">
+   <mx:HBox xmlns:mx="http://www.adobe.com/2006/mxml">
 
-     <mx:HBox xmlns:mx="http://www.adobe.com/2006/mxml"
-              horizontalGap="10" paddingTop="5">
+     <mx:VBox xmlns:mx="http://www.adobe.com/2006/mxml">
        <comp:LottoNumberSet id="luckyNumbers"/>
-       <mx:Button label="Reset" click="luckyNumbers.reset(); guessList.reset();"/>
-     </mx:HBox>
+       <comp:GuessedNumbers id="guessList"/>
+     </mx:VBox>
 
-     <comp:GuessedNumbers id="guessList"/>
+     <mx:Button label="Reset" click="reset();"/>
+
+     <mx:VBox xmlns:mx="http://www.adobe.com/2006/mxml">       
+       <mx:HBox xmlns:mx="http://www.adobe.com/2006/mxml">
+         <mx:Label text="Guesses: " fontSize="12" fontWeight="bold" fontFamily="Verdana" />
+         <mx:Label text="{GuessedNumbers.statNumGuesses}" fontSize="12" fontFamily="Verdana" />
+       </mx:HBox>
+       <mx:HBox xmlns:mx="http://www.adobe.com/2006/mxml">
+         <mx:Label text="1 right: " fontSize="12" fontWeight="bold" fontFamily="Verdana" />
+         <mx:Label text="{GuessedNumbers.statWith1}" fontSize="12" fontFamily="Verdana" />
+       </mx:HBox>
+       <mx:HBox xmlns:mx="http://www.adobe.com/2006/mxml">
+         <mx:Label text="2 right: " fontSize="12" fontWeight="bold" fontFamily="Verdana" />
+         <mx:Label text="{GuessedNumbers.statWith2}" fontSize="12" fontFamily="Verdana" />
+       </mx:HBox>
+       <mx:HBox xmlns:mx="http://www.adobe.com/2006/mxml">
+         <mx:Label text="3 right: " fontSize="12" fontWeight="bold" fontFamily="Verdana" />
+         <mx:Label text="{GuessedNumbers.statWith3}" fontSize="12" fontFamily="Verdana" />
+       </mx:HBox>
+       <mx:HBox xmlns:mx="http://www.adobe.com/2006/mxml">
+         <mx:Label text="4 right: " fontSize="12" fontWeight="bold" fontFamily="Verdana" />
+         <mx:Label text="{GuessedNumbers.statWith4}" fontSize="12" fontFamily="Verdana" />
+       </mx:HBox>
+       <mx:HBox xmlns:mx="http://www.adobe.com/2006/mxml">
+         <mx:Label text="5 right: " fontSize="12" fontWeight="bold" fontFamily="Verdana" />
+         <mx:Label text="{GuessedNumbers.statWith5}" fontSize="12" fontFamily="Verdana" />
+       </mx:HBox>
+       <mx:HBox xmlns:mx="http://www.adobe.com/2006/mxml">
+         <mx:Label text="6 right: " fontSize="12" fontWeight="bold" fontFamily="Verdana" />
+         <mx:Label text="{GuessedNumbers.statWith6}" fontSize="12" fontFamily="Verdana" />
+       </mx:HBox>
+     </mx:VBox>
      
-   </mx:VBox>
+   </mx:HBox>
 
   </mx:Panel>
 </mx:Application>
