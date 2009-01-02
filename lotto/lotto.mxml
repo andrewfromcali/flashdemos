@@ -16,7 +16,7 @@
      <mx:HBox xmlns:mx="http://www.adobe.com/2006/mxml"
               horizontalGap="10" paddingTop="5">
        <comp:LottoNumberSet id="luckyNumbers"/>
-       <mx:Button label="Reset" click="luckyNumbers.reset();"/>
+       <mx:Button label="Reset" click="luckyNumbers.reset(); guessList.reset();"/>
      </mx:HBox>
 
      <comp:GuessedNumbers id="guessList"/>

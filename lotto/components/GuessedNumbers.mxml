@@ -10,7 +10,17 @@
        import flash.utils.Timer;
        import flash.events.TimerEvent;
     
-       private var myTimer:Timer = new Timer(1000);
+       private var myTimer:Timer = new Timer(100);
+       
+       public function reset():void {
+         for (var i:Number = 0; i < 20; i++) { 
+           var hbox:HBox = this.getChildAt(i) as HBox;
+           for (var j:Number = 0; j < 6; j++) {
+             var label:Label = hbox.getChildAt(j) as Label;
+             label.text = "";
+           } 
+         } 
+       }
          
        private function addNumbers():void {
          for (var i:Number = 0; i<20; i++) {
@@ -44,7 +54,7 @@
            }  
          }
          var set:ArrayCollection = LottoNumberSet.makeSet();
-         var hbox:HBox   = this.getChildAt(0) as HBox;
+         var hbox:HBox = this.getChildAt(0) as HBox;
          for (i = 0; i < 6; i++) {
            var label:Label = hbox.getChildAt(i) as Label;
            label.text = ""+set.getItemAt(i);
