@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mx:HBox xmlns:mx="http://www.adobe.com/2006/mxml" xmlns:comp="components.*"
-  height="100%" horizontalGap="5" paddingTop="10" paddingLeft="5"
+  height="100%" horizontalGap="0"
   creationComplete="drawNumbers()">
   <mx:Script>
     <![CDATA[       
+       import events.PickNumbersEvent;
+       
+       public function reset():void {
+       }
+      
        private function drawNumbers():void {
          for (var i:Number = 0; i < 6; i++) {
            var lottoNumber:LottoNumber = new LottoNumber();
@@ -15,5 +20,9 @@
        }
     ]]>
   </mx:Script>
-
+  
+  <mx:Metadata>
+    [Event(name="pickNumbers", type="events.PickNumbersEvent")]
+  </mx:Metadata>
+  
 </mx:HBox>

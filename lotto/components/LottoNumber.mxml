@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" 
+  width="30"
   creationComplete="drawNumber()">
   <mx:Script>
     <![CDATA[
@@ -30,6 +31,9 @@
           this.theImage = megaBall;
           theLabel.setStyle("color", "0xffffff");
         }
+        
+        if (this.number.length == 1)
+          theLabel.x = 6;
       }
     ]]>
   </mx:Script>
