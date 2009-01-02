@@ -23,7 +23,14 @@
       [Bindable]
       public var fontColor:String
 
-       
+      public function setNumber(number:String):void {
+        this.number = number;
+        if (this.number.length == 1)
+          theLabel.x = 6;
+        else
+          theLabel.x = 2;
+      }
+      
       private function drawNumber():void {
         this.theImage = ball;
         theLabel.setStyle("color", "0x4c449e");
@@ -31,9 +38,6 @@
           this.theImage = megaBall;
           theLabel.setStyle("color", "0xffffff");
         }
-        
-        if (this.number.length == 1)
-          theLabel.x = 6;
       }
     ]]>
   </mx:Script>

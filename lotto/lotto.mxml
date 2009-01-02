@@ -2,28 +2,20 @@
 <mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" xmlns:comp="components.*">
   <mx:Script>
     <![CDATA[     
-      import events.PickNumbersEvent;
-      
       private function resetHandler():void {
         //n1.text="" + Math.ceil(Math.random() * 56);
       }
       
-      private function clickHandler(event:Event):void {
-        var pickNumbersEvent:PickNumbersEvent = new PickNumbersEvent("pickNumbers");
-        dispatchEvent(pickNumbersEvent);
-      }
     ]]>
   </mx:Script>
-  
-
-  
+    
   <mx:Panel title="Lotto" width="95%" height="95%" layout="horizontal" 
             paddingTop="5" paddingLeft="10" paddingRight="10" paddingBottom="5">
 
    <mx:HBox xmlns:mx="http://www.adobe.com/2006/mxml"
             horizontalGap="10" paddingTop="5">
-     <comp:LottoNumberSet pickNumbers="luckyNumbers.reset();" id="luckyNumbers"/>
-     <mx:Button label="Pick New Numbers" click="clickHandler(event);"/>
+     <comp:LottoNumberSet id="luckyNumbers"/>
+     <mx:Button label="Pick New Numbers" click="luckyNumbers.reset();"/>
    </mx:HBox>
 
   </mx:Panel>

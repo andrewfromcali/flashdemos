@@ -4,25 +4,38 @@
   creationComplete="drawNumbers()">
   <mx:Script>
     <![CDATA[       
-       import events.PickNumbersEvent;
-       
+       import mx.collections.ArrayCollection;
+              
        public function reset():void {
+         const MAX:Number = 56;
+         const MEGA_MAX:Number = 46;
+
+         var bucket:ArrayCollection = new ArrayCollection();
+         for (var i:Number = 0; i < 5; i++) {
+           var lottoNumber:LottoNumber = this.getChildAt(i) as LottoNumber;
+           var number:Number = Math.ceil(Math.random() * MAX);
+           while (bucket.contains(number)) {
+             number = Math.ceil(Math.random() * MAX);
+           }
+           bucket.addItem(number);
+           lottoNumber.setNumber(""+number);
+         }
+         
+         lottoNumber = this.getChildAt(5) as LottoNumber;
+         lottoNumber.setNumber(""+Math.ceil(Math.random() * MEGA_MAX));
+         
        }
       
        private function drawNumbers():void {
          for (var i:Number = 0; i < 6; i++) {
            var lottoNumber:LottoNumber = new LottoNumber();
-           lottoNumber.number = ""+Math.ceil(Math.random() * 56);
            if (i == 5)
              lottoNumber.mega = true;
            this.addChild(lottoNumber);
          }
+         this.reset();
        }
     ]]>
   </mx:Script>
-  
-  <mx:Metadata>
-    [Event(name="pickNumbers", type="events.PickNumbersEvent")]
-  </mx:Metadata>
   
 </mx:HBox>
