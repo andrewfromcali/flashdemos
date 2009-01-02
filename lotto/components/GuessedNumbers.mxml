@@ -80,16 +80,33 @@
          }
          var set:ArrayCollection = LottoNumberSet.makeSet();
          var hbox:HBox = this.getChildAt(0) as HBox;
+         var numRight:Number = 0;
          for (i = 0; i < 6; i++) {
            var label:Label = hbox.getChildAt(i) as Label;
            label.text = ""+set.getItemAt(i);
            
-           if (set.getItemAt(i) == LottoNumberSet.luckyNumbers.getItemAt(i))
+           if (set.getItemAt(i) == LottoNumberSet.luckyNumbers.getItemAt(i)) {
              label.setStyle("color", "red");
+             numRight++;
+           }
            else
              label.setStyle("color", "black");
-         }  
+         }
          
+         if (numRight == 1)
+           statWith1++;
+         else if (numRight == 2)
+           statWith2++;
+         else if (numRight == 3)
+           statWith3++;
+         else if (numRight == 4)
+           statWith4++;
+         else if (numRight == 5)
+           statWith5++;
+         else if (numRight == 6) {
+           statWith6++;
+           myTimer.stop();
+         }
        }
          
     ]]>

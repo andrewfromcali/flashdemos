@@ -11,7 +11,7 @@
     ]]>
   </mx:Script>
     
-  <mx:Panel title="Lotto" width="500" height="95%" layout="horizontal" 
+  <mx:Panel title="Lotto" width="500" height="630" layout="horizontal" 
             paddingTop="5" paddingLeft="10" paddingRight="10" paddingBottom="5">
    <mx:HBox xmlns:mx="http://www.adobe.com/2006/mxml">
 
