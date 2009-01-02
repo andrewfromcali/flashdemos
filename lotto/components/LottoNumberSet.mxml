@@ -6,6 +6,8 @@
     <![CDATA[       
        import mx.collections.ArrayCollection;
        
+       public static var luckyNumbers:ArrayCollection;
+       
        public static function makeSet():ArrayCollection {
          const MAX:Number = 56;
          const MEGA_MAX:Number = 46;
@@ -25,15 +27,15 @@
               
        public function reset():void {
 
-         var set:ArrayCollection = makeSet();
+         luckyNumbers = makeSet();
          
          for (var i:Number = 0; i < 5; i++) {
            var lottoNumber:LottoNumber = this.getChildAt(i) as LottoNumber;
-           lottoNumber.setNumber(""+set.getItemAt(i));
+           lottoNumber.setNumber(""+luckyNumbers.getItemAt(i));
          }
          
          lottoNumber = this.getChildAt(5) as LottoNumber;
-         lottoNumber.setNumber(""+set.getItemAt(5));
+         lottoNumber.setNumber(""+luckyNumbers.getItemAt(5));
        }
       
        private function addNumbers():void {

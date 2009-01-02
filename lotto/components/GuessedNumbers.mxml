@@ -18,6 +18,7 @@
            for (var j:Number = 0; j < 6; j++) {
              var label:Label = hbox.getChildAt(j) as Label;
              label.text = "";
+             label.setStyle("color", "black");
            } 
          } 
        }
@@ -51,6 +52,7 @@
              var label_dest:Label = hbox_dest.getChildAt(j) as Label;
              var label_source:Label = hbox_source.getChildAt(j) as Label;
              label_dest.text = label_source.text;
+             label_dest.setStyle("color", label_source.getStyle("color"));
            }  
          }
          var set:ArrayCollection = LottoNumberSet.makeSet();
@@ -58,6 +60,11 @@
          for (i = 0; i < 6; i++) {
            var label:Label = hbox.getChildAt(i) as Label;
            label.text = ""+set.getItemAt(i);
+           
+           if (set.getItemAt(i) == LottoNumberSet.luckyNumbers.getItemAt(i))
+             label.setStyle("color", "red");
+           else
+             label.setStyle("color", "black");
          }  
          
        }
