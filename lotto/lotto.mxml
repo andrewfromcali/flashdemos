@@ -11,12 +11,17 @@
     
   <mx:Panel title="Lotto" width="95%" height="95%" layout="horizontal" 
             paddingTop="5" paddingLeft="10" paddingRight="10" paddingBottom="5">
+   <mx:VBox xmlns:mx="http://www.adobe.com/2006/mxml">
 
-   <mx:HBox xmlns:mx="http://www.adobe.com/2006/mxml"
-            horizontalGap="10" paddingTop="5">
-     <comp:LottoNumberSet id="luckyNumbers"/>
-     <mx:Button label="Pick New Numbers" click="luckyNumbers.reset();"/>
-   </mx:HBox>
+     <mx:HBox xmlns:mx="http://www.adobe.com/2006/mxml"
+              horizontalGap="10" paddingTop="5">
+       <comp:LottoNumberSet id="luckyNumbers"/>
+       <mx:Button label="Reset" click="luckyNumbers.reset();"/>
+     </mx:HBox>
+
+     <comp:GuessedNumbers id="guessList"/>
+     
+   </mx:VBox>
 
   </mx:Panel>
 </mx:Application>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:VBox xmlns:mx="http://www.adobe.com/2006/mxml" xmlns:comp="components.*"
+  height="100%" horizontalGap="0"
+  creationComplete="addNumbers()">
+  <mx:Script>
+    <![CDATA[       
+       import mx.collections.ArrayCollection;
+       import mx.controls.Label;
+       import mx.containers.HBox;
+       import flash.utils.Timer;
+       import flash.events.TimerEvent;
+    
+       private var myTimer:Timer = new Timer(1000);
+         
+       private function addNumbers():void {
+         for (var i:Number = 0; i<20; i++) {
+           var hbox:HBox = new HBox();
+           hbox.setStyle("horizontalGap", 0);
+           for (var j:Number = 0; j < 6; j++) {
+             var label:Label = new Label();
+             label.text = "";
+             label.setStyle("fontWeight", "bold");
+             label.setStyle("fontSize", "12");
+             label.setStyle("fontFamily", "Verdana");
+             label.width = 30;
+             
+             hbox.addChild(label);
+           }
+           this.addChild(hbox);
+         }
+         myTimer.addEventListener(TimerEvent.TIMER, timerHandler);
+         myTimer.start();
+       }
+         
+       private function timerHandler(e:TimerEvent):void {
+         for (var i:Number = 19; i > 0; i--) {
+           
+           var hbox_dest:HBox   = this.getChildAt(i) as HBox;
+           var hbox_source:HBox = this.getChildAt(i-1) as HBox;
+           for (var j:Number = 0; j < 6; j++) {
+             var label_dest:Label = hbox_dest.getChildAt(j) as Label;
+             var label_source:Label = hbox_source.getChildAt(j) as Label;
+             label_dest.text = label_source.text;
+           }  
+         }
+         var set:ArrayCollection = LottoNumberSet.makeSet();
+         var hbox:HBox   = this.getChildAt(0) as HBox;
+         for (i = 0; i < 6; i++) {
+           var label:Label = hbox.getChildAt(i) as Label;
+           label.text = ""+set.getItemAt(i);
+         }  
+         
+       }
+         
+    ]]>
+  </mx:Script>
+  
+</mx:VBox>

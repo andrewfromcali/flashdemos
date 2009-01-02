@@ -1,32 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mx:HBox xmlns:mx="http://www.adobe.com/2006/mxml" xmlns:comp="components.*"
   height="100%" horizontalGap="0"
-  creationComplete="drawNumbers()">
+  creationComplete="addNumbers()">
   <mx:Script>
     <![CDATA[       
        import mx.collections.ArrayCollection;
-              
-       public function reset():void {
+       
+       public static function makeSet():ArrayCollection {
          const MAX:Number = 56;
          const MEGA_MAX:Number = 46;
 
-         var bucket:ArrayCollection = new ArrayCollection();
+         var set:ArrayCollection = new ArrayCollection();
+
          for (var i:Number = 0; i < 5; i++) {
-           var lottoNumber:LottoNumber = this.getChildAt(i) as LottoNumber;
            var number:Number = Math.ceil(Math.random() * MAX);
-           while (bucket.contains(number)) {
+           while (set.contains(number)) {
              number = Math.ceil(Math.random() * MAX);
            }
-           bucket.addItem(number);
-           lottoNumber.setNumber(""+number);
+           set.addItem(number);
+         }
+         set.addItem(Math.ceil(Math.random() * MEGA_MAX));
+         return set;
+       }
+              
+       public function reset():void {
+
+         var set:ArrayCollection = makeSet();
+         
+         for (var i:Number = 0; i < 5; i++) {
+           var lottoNumber:LottoNumber = this.getChildAt(i) as LottoNumber;
+           lottoNumber.setNumber(""+set.getItemAt(i));
          }
          
          lottoNumber = this.getChildAt(5) as LottoNumber;
-         lottoNumber.setNumber(""+Math.ceil(Math.random() * MEGA_MAX));
-         
+         lottoNumber.setNumber(""+set.getItemAt(5));
        }
       
-       private function drawNumbers():void {
+       private function addNumbers():void {
          for (var i:Number = 0; i < 6; i++) {
            var lottoNumber:LottoNumber = new LottoNumber();
            if (i == 5)
